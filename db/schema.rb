@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171021052847) do
+ActiveRecord::Schema.define(version: 20171021071305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "needs", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "organizations", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -34,6 +40,15 @@ ActiveRecord::Schema.define(version: 20171021052847) do
     t.index ["reset_password_token"], name: "index_organizations_on_reset_password_token", unique: true
   end
 
+  create_table "project_needs", force: :cascade do |t|
+    t.bigint "project_id"
+    t.bigint "need_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["need_id"], name: "index_project_needs_on_need_id"
+    t.index ["project_id"], name: "index_project_needs_on_project_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.bigint "organization_id"
     t.string "title"
@@ -43,5 +58,7 @@ ActiveRecord::Schema.define(version: 20171021052847) do
     t.index ["organization_id"], name: "index_projects_on_organization_id"
   end
 
+  add_foreign_key "project_needs", "needs"
+  add_foreign_key "project_needs", "projects"
   add_foreign_key "projects", "organizations"
 end
