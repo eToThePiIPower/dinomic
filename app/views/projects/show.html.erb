@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<div class="card">
+<div class="card projec-detail">
   <img class="card-img-top" src="http://via.placeholder.com/700x300" alt="">
   <div class="card-body">
-    <h4 class="card-title"><%= @project.title %></h4>
+    <h4 class="card-title index"><%= @project.title %></h4>
     <p class="card-text"><%= @project.location %></p>
     <p class="card-text">
       <% @project.needs.each do |need| %>
@@ -11,7 +11,7 @@
       <% end %>
     </p>
     <p class="card-text">
-      <%= link_to "Show bookings", project_bookings_path(@project), class: "btn btn-primary" %>
+      <%= link_to "Show bookings", project_bookings_path(@project), class: "btn btn-primary ok-button" %>
     </p>
   </div>
   <ul class="list-group">
@@ -22,7 +22,7 @@
           <% (provider['serviceProvided'] & @project.providers.needs).each do |need| %>
             <span class="badge badge-secondary badge-pill"><%= need %></span>
           <% end %>
-          <%= link_to 'Book', new_project_booking_path(@project, q: pid), class: "ml-auto" %>
+          <%= link_to 'Book', new_project_booking_path(@project, q: pid), class: "btn btn-primary ok-button" %>
         <% end %>
       </li>
     <% end %>

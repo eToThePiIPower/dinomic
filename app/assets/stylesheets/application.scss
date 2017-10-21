@@ -14,3 +14,147 @@
  *= require_self
  */
 @import 'bootstrap';
+
+.main {
+    background-color: #FFFFFF;
+}
+
+.jumbotron.about {
+    background-color: #FFFFFF;
+}
+/* change the background color */
+.navbar.navbar-custom {
+    background-color: #F9F9F9;
+    box-shadow: 0 2px 10px 0 rgba(214,214,214,0.50);
+
+}
+
+.navbar-nav.navbar-collapse {
+    display: block;
+    width: 75%;        
+}
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    font-family: Avenir-Book;
+    font-size: 20px;
+    letter-spacing: 0.48px;
+    color: #4A4A4A;
+    
+}
+
+#navbarCollapseContent > ul.navbar-nav.ml-auto > li > a.settings{
+    font-family: Avenir-Book;
+    font-size: 20px;
+    color: #00D96B;
+    letter-spacing: 0.48px;
+}
+
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    font-family: Avenir-Medium;
+    font-size: 20px;
+    letter-spacing: 0.48px;
+    color: #4A4A4A;
+}
+
+.navbar-dark {
+/* Unidos: */
+font-family: Avenir-Book;
+font-size: 20px;
+color: #00D96B;
+letter-spacing: 0.48px;
+}
+
+.jumbotron.about {
+    display: block;
+    width: 75%;
+}
+/* XXX (Product name) p: */
+p.about {
+    font-family: Avenir-Book;
+    font-size: 16px;
+    color: #4A4A4A;
+    letter-spacing: 0.53px;
+    margin-top: 100px;
+}
+
+.btn.btn-primary.ok-button {
+    margin-top: 50px;
+    float: right;
+    font-family: Avenir-Heavy;
+    font-size: 16px;
+    color: #FFFFFF;
+    letter-spacing: 0.53px;
+    text-align: center;
+    display: block;
+    width: 150px;
+    background: #50F2FA;
+    box-shadow: 0 2px 7px 0 rgba(135,193,195,0.46);
+    border-radius: 5px;
+    border: none;
+}
+
+.title {
+    font-family: Avenir-Book;
+    font-size: 28px;
+    color: #4A4A4A;
+    letter-spacing: 0.93px;
+}
+
+.container.projects {
+    margin-top: 100px;
+    display: block;
+    width: 75%;        
+}
+
+.container.login {
+    margin-top: 100px;
+    display: block;
+    width: 75%;        
+}
+
+.form-group {
+    margin-top: 25px;
+    margin-left: 0px;
+    display: block;
+    width: 70%;
+
+    label {
+        font-family: Avenir-Book;
+        font-size: 18px;
+        color: #4A4A4A;
+        letter-spacing: 0.48px;
+    }
+    input {
+        border: 1px solid #C1C1C1;
+        border-radius: 3px;       
+    }
+}
+
+.project-detail {
+    background: #FFFFFF;
+    box-shadow: 0 3px 15px 0 rgba(212,212,212,0.50);
+    border-radius: 5px;
+}
+
+.badge.badge-pill.badge-primary {
+    /* Rectangle 3: */
+    background: #49EFB5;
+    border-radius: 5px;
+    /* Line: */
+    border: 1px solid #FFFFFF;
+    /* Line: */
+    border: 1px solid #FFFFFF;
+    /* Fix cell towers: */
+    font-family: Avenir-Medium;
+    font-size: 16px;
+    color: #FFFFFF;
+    letter-spacing: 0.42px;
+}
+
+.project-tile {
+    background: #FFFFFF;
+    border-radius: 5px;
+}

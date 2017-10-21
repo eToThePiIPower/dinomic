@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-secondary">
+<nav class="navbar navbar-expand-sm navbar-custom">
   <a class="navbar-brand" href="/">Dinomic</a>
   <button class="navbar-toggler"
           type="button"
@@ -10,31 +10,35 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarCollapseContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Help</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
-      </li>
+  <div class="collapse navbar-collapse" id="navbarCollapseContent" >
+    <ul class="navbar-nav mr-auto navbar-custom mx-auto">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+          </div>
+          <div class="col-sm">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Project</a>
+            </li>
+          </div>
+          <div class="col-sm">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Bookings</a>
+            </li>
+          </div>
+        </div>
+      </div>
     </ul>
 
     <ul class="navbar-nav ml-auto">
 
       <% if organization_signed_in? %>
-        <div class="nav-item">
-          <strong class="navbar-text"><%= current_organization.name %></strong>
-        </div>
-        <li class="nav-item">
-          <a class="nav-link" href="/projects">Projects</a>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Log out", destroy_organization_session_path,
-            method: :delete, class: "nav-link" %>
+        <li>
+          <%= link_to current_organization.name, destroy_organization_session_path,
+            method: :delete, class: "nav-link settings" %>
         </li>
       <% else %>
         <li class="nav-item">
