@@ -1,8 +1,8 @@
 class Project < ApplicationRecord
   belongs_to :organization
-  has_many :project_needs
+  has_many :project_needs, dependent: :destroy
   has_many :needs, through: :project_needs
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
 
   def all_needs=(names)
     self.needs = names.split(',').map do |name|
