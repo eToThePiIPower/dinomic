@@ -12,4 +12,8 @@ class Project < ApplicationRecord
   def all_needs
     self.needs.map(&:name).join(', ')
   end
+
+  def providers
+    @provider ||= ProviderService.new(needs)
+  end
 end

@@ -16,3 +16,23 @@
     <%= link_to 'Back', projects_path, class: "card-link" %>
   </div>
 </div>
+
+<div class="my-5">
+  <button class="btn btn-primary form-control"
+          data-toggle="collapse" data-target="#providersList">
+    Show Available Providers
+  </button>
+
+  <div id="providersList" class="collapse">
+    <ul class="list-group list-group-flush">
+      <% @project.providers.provider_list.each do |provider| %>
+        <li class="list-group-item">
+          <%= provider['name'] %>
+          <% (provider['serviceProvided'] & @project.providers.needs).each do |need| %>
+            <span class="badge badge-secondary badge-pill"><%= need %></span>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
