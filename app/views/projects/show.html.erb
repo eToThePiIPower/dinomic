@@ -11,8 +11,62 @@
       <% end %>
     </p>
   </div>
+  <ul class="list-group">
+    <% @project.provider_ids.each do |pid| %>
+      <li class="list-group-item">
+        <% @project.providers.provider_list.select{|p| p['id'] == pid}.each do |provider| %>
+          <%= provider['name'] %>
+          <% (provider['serviceProvided'] & @project.providers.needs).each do |need| %>
+            <span class="badge badge-secondary badge-pill"><%= need %></span>
+          <% end %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
   <div class="card-footer">
     <%= link_to 'Edit', edit_project_path(@project), class: "card-link" %>
     <%= link_to 'Back', projects_path, class: "card-link" %>
   </div>
 </div>
+
+<div class="my-5">
+  <button class="btn btn-primary form-control"
+          data-toggle="collapse" data-target="#providersList">
+    Show Available Providers
+  </button>
+
+  <div id="providersList" class="collapse">
+    <ul class="list-group list-group-flush">
+      <% @project.providers.provider_list.each do |provider| %>
+        <li class="list-group-item">
+          <%= provider['name'] %>
+          <% (provider['serviceProvided'] & @project.providers.needs).each do |need| %>
+            <span class="badge badge-secondary badge-pill"><%= need %></span>
+          <% end %>
+          <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#providerModal<%= provider['id'] %>">Show details</button>
+        </li>
+
+        <div id="providerModal<%= provider['id']%>" class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title"><%= provider['name'] %></h5>
+              </div>
+              <div class="modal-body">
+                <p><%= provider['address'] %></p>
+                <p><%= provider['location'] %></p>
+                <p>
+                  <% provider['serviceProvided'].each do |service| %>
+                    <span class="badge badge-secondary badge-pill"><%= service %></span>
+                  <% end %>
+                </p>
+                <%= link_to 'Add to Project', project_add_provider_path(@project, provider['id']), method: :post, class:  "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
