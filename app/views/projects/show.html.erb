@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<div class="card">
+  <img class="card-img-top" src="http://via.placeholder.com/700x300" alt="">
+  <div class="card-body">
+    <h4 class="card-title"><%= @project.title %></h4>
+    <p class="card-text"><%= @project.location %></p>
+  </div>
+  <div class="card-footer">
+    <%= link_to 'Edit', edit_project_path(@project), class: "card-link" %>
+    <%= link_to 'Back', projects_path, class: "card-link" %>
+  </div>
+</div>
