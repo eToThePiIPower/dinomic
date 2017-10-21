@@ -4,6 +4,6 @@ Rails.application.routes.draw do
     resources :bookings
   end
   resources :needs, only: [:show]
-  devise_for :organizations
+  devise_for :organizations, controllers: { registrations: 'registrations' }
   root to: 'home#index'
 end
