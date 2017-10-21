@@ -1,0 +1,23 @@
+Metrics/LineLength:
+  Max: 100
+  IgnoredPatterns: ['\A\s*#']
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/**/*'
+
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'node_modules/**/*'
+
+Style/Documentation:
+  Exclude:
+    - 'app/controllers/*_controller.rb'
+    - 'app/helpers/*_helper.rb'
+    - 'app/mailers/*_mailer.rb'
+    - 'app/models/*.rb'
+    - 'db/migrate/**/*'
+    - 'config/application.rb'
+    - 'spec/**/*'
+    - 'test/**/*'
