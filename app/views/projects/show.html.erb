@@ -10,6 +10,9 @@
         <%= link_to need.name, need, class: "badge badge-pill badge-primary" %>
       <% end %>
     </p>
+    <p class="card-text">
+      <%= link_to "Show bookings", project_bookings_path(@project), class: "btn btn-primary" %>
+    </p>
   </div>
   <ul class="list-group">
     <% @project.provider_ids.each do |pid| %>
@@ -19,6 +22,7 @@
           <% (provider['serviceProvided'] & @project.providers.needs).each do |need| %>
             <span class="badge badge-secondary badge-pill"><%= need %></span>
           <% end %>
+          <%= link_to 'Book', new_project_booking_path(@project, q: pid), class: "ml-auto" %>
         <% end %>
       </li>
     <% end %>

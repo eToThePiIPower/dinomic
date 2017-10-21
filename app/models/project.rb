@@ -2,6 +2,7 @@ class Project < ApplicationRecord
   belongs_to :organization
   has_many :project_needs
   has_many :needs, through: :project_needs
+  has_many :bookings
 
   def all_needs=(names)
     self.needs = names.split(',').map do |name|
