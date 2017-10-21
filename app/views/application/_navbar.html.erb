@@ -21,6 +21,22 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Contact</a>
       </li>
+
+      <% if organization_signed_in? %>
+        <div class="nav-item">
+          <span class="nav-link"><%= current_organization.name %></span>
+        </div>
+        <li class="nav-item">
+          <%= link_to "Log out", destroy_organization_session_path,
+            method: :delete, class: "nav-link" %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Log in", new_organization_session_path,
+            class: "nav-link" %>
+        </li>
+      <% end %>
+
     </ul>
   </div>
 </nav>
