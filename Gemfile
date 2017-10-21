@@ -23,7 +23,12 @@ gem 'turbolinks', '~> 5'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'capybara'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 3.6.1'
   gem 'rubocop'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do
@@ -31,6 +36,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+end
+
+group :test do
+  gem 'shoulda-matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
