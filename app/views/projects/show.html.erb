@@ -11,6 +11,18 @@
       <% end %>
     </p>
   </div>
+  <ul class="list-group">
+    <% @project.provider_ids.each do |pid| %>
+      <li class="list-group-item">
+        <% @project.providers.provider_list.select{|p| p['id'] == pid}.each do |provider| %>
+          <%= provider['name'] %>
+          <% (provider['serviceProvided'] & @project.providers.needs).each do |need| %>
+            <span class="badge badge-secondary badge-pill"><%= need %></span>
+          <% end %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
   <div class="card-footer">
     <%= link_to 'Edit', edit_project_path(@project), class: "card-link" %>
     <%= link_to 'Back', projects_path, class: "card-link" %>
@@ -31,6 +43,7 @@
           <% (provider['serviceProvided'] & @project.providers.needs).each do |need| %>
             <span class="badge badge-secondary badge-pill"><%= need %></span>
           <% end %>
+          <%= link_to 'Add to Project', project_add_provider_path(@project, provider['id']), method: :post, class:  "" %>
         </li>
       <% end %>
     </ul>

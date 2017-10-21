@@ -62,14 +62,22 @@ class ProjectsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = Project.find(params[:id])
-    end
+  def add_provider
+    @project = Project.find(params[:project_id])
+    @project.provider_ids << params[:provider_id].to_i
+    @project.save
+    redirect_to @project
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def project_params
-      params.require(:project).permit(:organization_id, :title, :location, :all_needs)
-    end
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project
+    @project = Project.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def project_params
+    params.require(:project).permit(:organization_id, :title, :location, :all_needs)
+  end
 end
