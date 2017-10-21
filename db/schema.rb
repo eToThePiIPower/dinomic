@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171021110325) do
+ActiveRecord::Schema.define(version: 20171021130108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "project_id"
+    t.date "starts_on"
+    t.date "ends_on"
+    t.integer "provider_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_bookings_on_project_id"
+  end
 
   create_table "needs", force: :cascade do |t|
     t.string "name"
@@ -59,6 +69,7 @@ ActiveRecord::Schema.define(version: 20171021110325) do
     t.index ["organization_id"], name: "index_projects_on_organization_id"
   end
 
+  add_foreign_key "bookings", "projects"
   add_foreign_key "project_needs", "needs"
   add_foreign_key "project_needs", "projects"
   add_foreign_key "projects", "organizations"

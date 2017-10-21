@@ -1,0 +1,23 @@
+<%= form_with(model: [@project, @booking], local: true) do |form| %>
+  <% if @booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :provider_id, value: @booking.provider_id %>
+  <div class="field">
+    <%= form.date_field :starts_on %>
+    <%= form.date_field :starts_on %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

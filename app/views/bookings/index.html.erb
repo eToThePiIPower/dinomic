@@ -1,0 +1,12 @@
+<% @bookings.each do |booking| %>
+  <div class="card my-3">
+    <div class="card-body">
+      <h4 class="card-title">
+        <%= booking.provider['name'] %>
+      </h4>
+      <div class="card-text">
+        <%= booking.starts_on %> – <%= booking.starts_on %>
+      </div>
+    </div>
+  </div>
+<% end %>
