@@ -1,0 +1,8 @@
+<div class="container-fluid">
+  <% unless notice.nil? %>
+    <div class="alert alert-info mt-3"><%= notice %></div>
+  <% end %>
+  <% unless alert.nil? %>
+    <div class="alert alert-danger mt-3"><%= alert %></div>
+  <% end %>
+</div>
