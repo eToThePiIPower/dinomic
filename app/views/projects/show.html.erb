@@ -6,6 +6,9 @@
     <h4 class="card-title"><%= @project.title %></h4>
     <p class="card-text"><%= @project.location %></p>
     <p class="card-text">
+      <%= @project.description %>
+    </p>
+    <p class="card-text">
       <% @project.needs.each do |need| %>
         <%= link_to need.name, need, class: "badge badge-pill badge-primary" %>
       <% end %>
