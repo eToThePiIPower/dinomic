@@ -5,6 +5,11 @@
   <div class="card-body">
     <h4 class="card-title"><%= @project.title %></h4>
     <p class="card-text"><%= @project.location %></p>
+    <p class="card-text">
+      <% @project.needs.each do |need| %>
+        <%= link_to need.name, need, class: "badge badge-pill badge-primary" %>
+      <% end %>
+    </p>
   </div>
   <div class="card-footer">
     <%= link_to 'Edit', edit_project_path(@project), class: "card-link" %>

@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @need.name %> Projects</h1>
+<hr />
+
+<div class="card-columns">
+  <% @need.projects.each do |project| %>
+    <div class="card">
+      <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="">
+      <div class="card-body">
+        <h4 class="card-title"><%= project.title %></h4>
+        <p class="card-text"><%= project.location %></p>
+      </div>
+      <div class="card-footer">
+        <%= link_to 'Show', project, class: "card-link" %>
+        <%= link_to 'Edit', edit_project_path(project), class: "card-link" %>
+        <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class: "card-link" %>
+      </div>
+    </div>
+  <% end %>
+</div>
