@@ -1,3 +1,20 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'bootstrap';
+.card-columns {
+  @include media-breakpoint-only(sm) {
+        column-count: 2!important;
+  }
+  @include media-breakpoint-only(md) {
+        column-count: 2!important;
+  }
+  @include media-breakpoint-only(lg) {
+        column-count: 4!important;
+  }
+  @include media-breakpoint-only(xl) {
+        column-count: 4!important;
+          
+  }
+ 
+}
